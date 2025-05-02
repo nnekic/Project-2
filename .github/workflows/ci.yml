@@ -27,15 +27,15 @@ jobs:
         needs: testing
 
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-            - name: build docker image
-              run: docker build -t nodeapp-project2:latest .
             - name: login to docker hub
               uses: docker/login-action@v3
               with:
                 username: ${{ secrets.DOCKERHUB_USERNAME}}
                 password: ${{ secrets.DOCKERHUB_PASSWORD}}
 
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: build docker image
+              run: docker build -t nodeapp-project2:latest .
             - name: push to the dockerhub
               run: docker push nnekic/nodeapp-project2:latest
