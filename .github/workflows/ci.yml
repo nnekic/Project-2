@@ -36,6 +36,6 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
             - name: build docker image
-              run: docker build -t nodeapp-project2:latest .
+              run: docker build -t nnekic/nodeapp-project2:latest .
             - name: push to the dockerhub
               run: docker push nnekic/nodeapp-project2:latest
