@@ -26,7 +26,9 @@ jobs:
         runs-on: ubuntu-latest
         needs: testing
 
-        steps: 
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
             - name: build docker image
               run: docker build -t nodeapp-project2:latest .
             - name: login to docker hub
