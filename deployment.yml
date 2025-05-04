@@ -13,8 +13,8 @@ spec:
     metadata:
       labels:
         app: node-app2
-  spec:
-    containers:
+    spec:
+      containers:
       - name: node-app2
         image: nnekic/nodeapp-project2
         ports:
