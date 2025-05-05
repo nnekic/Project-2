@@ -16,7 +16,7 @@ jobs:
               with:
                 node-version: '18'
             - name: Run Node app
-              run: node index.js &
+              run: node index.js
             - name: Testing of the node app
               run: |
                 sleep 5
