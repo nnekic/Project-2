@@ -15,11 +15,14 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: '18'
+            - name: Install of the prom-client
+              run: npm install prom-client
             - name: Run Node app
               run: node index.js &
             - name: Testing of the node app
               run: |
                 sleep 5
+                ps aux | grep node
                 curl -f http://localhost:3000
 
     build:
