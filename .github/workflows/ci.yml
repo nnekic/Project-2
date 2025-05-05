@@ -19,7 +19,8 @@ jobs:
               run: node index.js &
             - name: Testing of the node app
               run: |
-                sleep 15
+                sleep 5
+                ps aux | grep node
                 curl -f http://localhost:3000
 
     build:
