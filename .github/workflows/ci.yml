@@ -22,7 +22,6 @@ jobs:
             - name: Testing of the node app
               run: |
                 sleep 5
-                ps aux | grep node
                 curl -f http://localhost:3000
 
     build:
