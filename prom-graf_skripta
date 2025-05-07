@@ -1,0 +1,2 @@
+kubectl port-forward -n default svc/monitoring-kube-prometheus-prometheus 9090:9090 > prometheus.log 2>&1 &
+kubectl port-forward -n default svc/monitoring-grafana 3000:80 > grafana.log 2>&1 &
