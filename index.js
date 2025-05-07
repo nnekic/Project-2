@@ -1,18 +1,18 @@
 const http = require('http');
 const prometheus = require('prom-client');
 
+const requestCounter = new prometheus.Counter({
+  name: 'http_requests_total',
+  help: 'Total number of HTTP requests',
+  labelNames: ['method', 'status'],
+});
+
 const server = http.createServer((req, res) => {
   if (req.url == '/health'){
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end (JSON.stringify({ status: "OK" }));
     return;
   }
-
-  const requestCounter = new prometheus.Counter({
-    name: 'http_requests_total',
-    help: 'Total number of HTTP requests',
-    labelNames: ['method', 'status'],
-  });
   
   res.on('finish', () => {
     requestCounter.inc({ method: req.method, status: req.statusCode })
